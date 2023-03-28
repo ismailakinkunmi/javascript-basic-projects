@@ -43,7 +43,7 @@ const prevBtn = document.querySelector('.prev-btn')
 const nextBtn = document.querySelector('.next-btn')
 const randomBtn = document.querySelector('.random-btn')
 
-
+//show initail review
 window.addEventListener('DOMContentLoaded', function(){
   showReviewer()
 })
@@ -58,6 +58,7 @@ function showReviewer() {
   
 }
 
+// show next review
 nextBtn.addEventListener('click', function(){
     currentReview ++;          
     if(currentReview > reviews.length - 1){
@@ -67,6 +68,7 @@ nextBtn.addEventListener('click', function(){
 })
 
 
+// show previous review
 prevBtn.addEventListener('click', function(){
     currentReview --;          
     if(currentReview < 0){
@@ -74,3 +76,14 @@ prevBtn.addEventListener('click', function(){
     }
     showReviewer();  
 })
+
+
+// show random review
+randomBtn.addEventListener('click', function(){
+  currentReview = generateRAndomReview();
+  return showReviewer(); 
+})
+
+function generateRAndomReview() {
+ return (Math.floor(Math.random() * reviews.length));
+}
